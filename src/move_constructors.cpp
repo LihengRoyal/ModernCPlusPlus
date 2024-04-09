@@ -26,34 +26,26 @@
 // are here to show the performance benefits of using std::move.
 #include <vector>
 
-// Basic person class, with an implemented move constructor and move assignment
-// operator, and a deleted copy constructor and copy assignment operator. This
-// means that once an Person object is instantiated, it cannot be copied. It
-// must be moved from one lvalue to another. Classes without copy operators are
-// useful when it is imperative to only have one defined instance of a class.
-// For instance, if a class manages a dynamically allocated memory block, then
-// creating more than one instance of this class, without proper handling, can
-// result in double deletion or memory leaks.
+//基本的人员（Person）类，其中实现了移动构造函数和移动赋值运算符，并且删除了复制
+//构造函数和复制赋值运算符。这意味着一旦实例化了 Person 对象，就不能再进行复制。
+//它必须从一个左值移动到另一个左值。没有复制运算符的类在必须只有一个定义的类实例
+//时非常有用。例如，如果一个类管理一个动态分配的内存块，那么在没有适当处理的情况下，
+//创建多个该类的实例可能会导致双重删除或内存泄漏。
 class Person {
 public:
   Person() : age_(0), nicknames_({}), valid_(true) {}
 
-  // Keep in mind that this constructor takes in a std::vector<std::string>
-  // rvalue. This makes the constructor more efficient because it doesn't deep
-  // copy the vector instance when constructing the person object.
+  //请记住，此构造函数接受一个 std::vector<std::string> 的右值。这使得构造函数更
+  //高效，因为在构造 Person 对象时不会对 vefctor 实例进行深拷贝。
   Person(uint32_t age, std::vector<std::string> &&nicknames)
       : age_(age), nicknames_(std::move(nicknames)), valid_(true) {}
 
-  // Move constructor for class Person. It takes in a rvalue with type Person,
-  // and moves the contents of the rvalue passed in as an argument to this
-  // Person object instance. Note the usage of std::move. In order to ensure
-  // that nicknames in object person is moved, and not deep copied, we use
-  // std::move. std::move will cast the lvalue person.nicknames_ to an rvalue,
-  // which represents the value itself. Also note that I don't call std::move
-  // on the age_ field. Since it's an integer type, it's too small to incur a
-  // significant copying cost. Generally, for numeric types, it's okay to copy
-  // them, but for other types, such as strings and object types, one should
-  // move the class instance unless copying is necessary.
+  //Person 类的移动构造函数。它接受一个类型为 Person 的右值，并将传入的右值的内容
+  //移动到此 Person 对象实例中。请注意使用了 std::move。为了确保对象 person 中的
+  //昵称被移动，而不是深拷贝，我们使用了 std::move。std::move 将左值 person.nicknames_ 
+  //转换为右值，表示值本身。还请注意，我没有在 age_ 字段上调用 std::move。
+  //因为它是一个整数类型，复制的成本太小。通常情况下，对于数值类型，复制它们是可以接受的，
+  //但对于其他类型，例如字符串和对象类型，除非必要，否则应该移动类实例。
   Person(Person &&person)
       : age_(person.age_), nicknames_(std::move(person.nicknames_)),
         valid_(true) {
@@ -80,11 +72,10 @@ public:
   Person &operator=(const Person &) = delete;
 
   uint32_t GetAge() { return age_; }
-
-  // This ampersand at the return type implies that we return a reference
-  // to the string at nicknames_[i]. This also implies that we don't copy
-  // the resulting string, and the memory address this returns under the
-  // hood is actually the one pointing to the nicknames_ vector's memory.
+  
+  //这个返回类型中的 ampersand（&）表示我们返回了 nicknames_[i] 中字符串的
+  //引用。这也意味着我们没有复制返回的字符串，而且在底层返回的内存地址实际上是
+  //指向 nicknames_ 向量内存的地址。
   std::string &GetNicknameAtI(size_t i) { return nicknames_[i]; }
 
   void PrintValid() {

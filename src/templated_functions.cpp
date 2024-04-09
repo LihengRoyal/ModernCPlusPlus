@@ -7,17 +7,13 @@
 // Includes std::cout (printing) for demo purposes.
 #include <iostream>
 
-// Templates are a language feature in C++ that allow you to write code that
-// can work with multiple data types, without actually specifying those types.
-// In C++, you can create both templated functions and templated classes. We'll
-// talk about templated functions in this file.
+//模板是 C++ 中的一种语言特性，允许你编写可以处理多种数据类型的代码，而无需实际指
+//定这些类型。在 C++ 中，你可以创建模板函数和模板类。
 
-// Here is a basic templated function that adds two numbers.
-// Syntax note: You will see code with both template<class T> and
-// template<typename T>. Although these statements are equivalent, there are
-// differences between the class and typename keywords. This blog article covers
-// this difference, but you won't need to know this for the class:
-// https://mariusbancila.ro/blog/2021/03/15/typename-or-class/
+//这是一个基本的模板函数，用于相加两个数字。语法说明：你会看到代码中既有 
+//template<class T>，也有 template<typename T>。虽然这两个语句是等价的，
+//但是 class 和 typename 关键字之间有一些区别。这篇博文涵盖了这种区别，
+//但是对于这个课程来说你不需要了解这些：
 template <typename T> T add(T a, T b) { return a + b; }
 
 // It is possible to pass multiple type names via templates into functions.
@@ -38,9 +34,8 @@ template <> void print_msg<float>() {
   std::cout << "print_msg called with float type!\n";
 }
 
-// Lastly, template parameters do not have to be classes. Take this basic (yet
-// very contrived) function that takes in a bool as a template parameter and
-// does different things to the argument depending on the boolean argument.
+//最后，模板参数不一定非要是类。看这个基本的（虽然很牵强附会的）函数，它将一个布尔值
+//作为模板参数，并根据布尔值参数执行不同的操作。
 template <bool T> int add3(int a) {
   if (T) {
     return a + 3;
@@ -79,12 +74,10 @@ int main() {
   // argument, as we can see here.
   std::cout << "Printing add3<true>(3): " << add3<true>(3) << std::endl;
   std::cout << "Printing add3<false>(3): " << add3<false>(3) << std::endl;
-
-  // Lastly, it's important to note that most of these are contrived examples,
-  // and it is possible to code some of these functions (e.g. passing a boolean
-  // as an argument instead of a templated argument) without using templates.
-  // However, in the class, you'll be seeing code similar to this in the
-  // codebase, so it's good to understand templated functions in these contexts!
+  
+  //最后，重要的是要注意，大多数这些都是虚构的例子，而且可能可以编写一些这样的函数（例如，
+  //将布尔值作为参数传递而不是模板参数）而不使用模板。然而，在这门课程中，你会在代码库中
+  //看到类似这样的代码，所以理解这些上下文中的模板函数是很有好处的！
 
   return 0;
 }

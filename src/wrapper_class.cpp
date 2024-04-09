@@ -4,14 +4,10 @@
  * @brief Tutorial code on wrapper classes.
  */
 
-// A C++ wrapper class is a class that manages a resource. A resource
-// could be memory, file sockets, or a network connection. Wrapper classes
-// often use the RAII (Resource Acquisition is Initialization) C++ 
-// programming technique. Using this technique implies that the resource's
-// lifetime is tied to its scope. When an instance of the wrapper class is
-// constructed, this means that the underlying resource it is managing is
-// available, and when this instance is destructed, the resource also
-// is unavailable. 
+//一个 C++ 封装类是管理资源的类。资源可以是内存、文件、套接字或网络连接。封装类
+//通常使用 RAII（资源获取即初始化）C++ 编程技术。使用这种技术意味着资源的生命
+//周期与其作用域绑定。当封装类的实例被构造时，这意味着它管理的底层资源可用，当
+//此实例被析构时，资源也变得不可用。
 // Here are a couple resources on RAII that are useful:
 // https://en.cppreference.com/w/cpp/language/raii (RAII docs on the CPP
 // docs website)
@@ -26,16 +22,12 @@
 // Includes the utility header for std::move.
 #include <utility>
 
-// The IntPtrManager class is a wrapper class that manages an int*. The
-// resource that this class is managing is the dynamic memory accessible via
-// the pointer ptr_. By the principles of the RAII technique, a wrapper class
-// object should not be copyable, since one object is supposed to manage one
-// resource. Therefore, the copy assignment operator and copy constructor are
-// deleted from this class. However, the class is still moveable from different
-// lvalues/owners, and has a move constructor and move assignment operator.
-// Another reason that wrapper classes forbid copying is because they destroy
-// their resource in the destructor, and if two objects are managing the same
-// resource, there is a risk of double deletion of the resource.
+//IntPtrManager 类是一个封装类，管理一个 int*。这个类管理的资源是通过指针 ptr_ 
+//可访问的动态内存。根据 RAII 技术的原则，封装类对象不应该是可复制的，因为一个
+//对象应该管理一个资源。因此，这个类的复制赋值运算符和复制构造函数被删除。然而，
+//该类仍然可以从不同的左值/所有者移动，并具有移动构造函数和移动赋值运算符。
+//另一个禁止复制封装类的原因是因为它们在析构函数中销毁资源，如果两个对象管理
+//相同的资源，存在资源的重复删除的风险。
 class IntPtrManager {
   public:
     // All constructors of a wrapper class are supposed to initialize a resource.

@@ -4,28 +4,20 @@
  * @brief Tutorial code for move semantics.
  */
 
-// Move semantics in C++ are a useful concept that allows for the efficient
-// and optimized transfer of ownership of data between objects. One of the
-// main goals of move semantics is to increase performance, since moving an
-// object is faster and more efficient than deep copying the object.
+//移动语义是一个非常有用的概念，它允许在对象之间进行数据所有权的高效优化传递。
+//移动语义的主要目标之一是提高性能，因为移动对象比深拷贝对象更快、更高效。
 
-// To understand move semantics, one must understand the concept of lvalues
-// and rvalues. A simplified definition of lvalues is that lvalues are objects
-// that refer to a location in memory. Rvalues are anything that is not a
-// lvalue.
+//要理解移动语义，必须先了解左值和右值的概念。左值的简化定义是指它们是指向内存位置的对象。
+//右值则是任何不是左值的东西。
 
-// std::move is the most common way of moving an object from one lvalue to
-// another. std::move casts an expression to a rvalue. This allows for us to
-// interact with a lvalue as a rvalue, and allows for the ownership to be
-// transferred from one lvalue to another.
-
-// In the code below, we include some examples for identifying whether
-// expressions in C++ are lvalues or rvalues, how to use std::move, and passing
-// rvalues references into functions.
+//std::move 是将对象从一个左值移动到另一个左值的最常见方式。
+//std::move 将一个表达式转换为右值。这样我们就可以将左值作为右值来处理，
+//并且允许所有权从一个左值转移到另一个左值。
 
 // Includes std::cout (printing) for demo purposes.
 #include <iostream>
 // Includes the utility header for std::move.
+//move函数的头文件为utility
 #include <utility>
 // Includes the header for std::vector. We'll cover vectors more in
 // containers.cpp, but what suffices to know for now is that vectors are
