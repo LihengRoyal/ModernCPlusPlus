@@ -69,10 +69,8 @@ int main() {
   // an extended period of time. Then, I'd imagine it would save a lot of
   // typing time!
 
-  // One important thing to note about the auto keyword is that it 
-  // defaults to copying objects, which can lower performance. Take the
-  // following example where we construct a int vector, and want to
-  // define a variable that is a reference to it.
+  //关于 auto 关键字需要注意的一点是，默认情况下它会复制对象，这可能会降低性能。
+  //看下面的例子，我们构造了一个 int 向量，并希望定义一个变量，该变量是它的引用。
   std::vector<int> int_values = {1, 2, 3, 4};
 
   // The following code deep-copies int_values into copy_int_values,
@@ -126,13 +124,10 @@ int main() {
     std::cout << elem << " ";
   }
   std::cout << std::endl;
-
-  // Overall, auto is a useful C++ keyword that can be used to write code more
-  // efficiently, and to write cleaner and more readable code.
-  // Keep in mind that using auto to iterate through C++ containers is better
-  // in practice, since it produces more readable code. However, if you're not
-  // sure of the types that are being used, it is always okay to revert back
-  // to figuring out the type yourself.
+  
+  //总的来说，auto 是一个有用的 C++ 关键字，可以用于更高效地编写代码，编写更清晰、
+  //更易读的代码。要记住，在实践中，使用 auto 遍历 C++ 容器更好，因为它产生的代码
+  //更易读。然而，如果你不确定正在使用的类型，那么随时可以回归到手动确定类型。
 
   return 0;
 }

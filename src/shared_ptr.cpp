@@ -4,11 +4,10 @@
  * @brief Tutorial code for usage of a shared pointer.
  */
 
-// In this file, we'll talk about std::shared_ptr, which is a C++ smart pointer.
-// See the intro of unique_ptr.cpp for an introduction on smart pointers.
-// std::shared_ptr is a type of smart pointer that retains shared ownership of
-// an object through a pointer. This means that multiple shared pointers can
-// own the same object, and shared pointers can be copied.
+//在这个文件中，我们将讨论 std::shared_ptr，它是 C++ 的智能指针。请参阅 
+//unique_ptr.cpp 中的简介了解智能指针的介绍。std::shared_ptr 是一种智能指针，
+//通过指针保留对象的共享所有权。这意味着多个共享指针可以拥有同一个对象，并且共享
+//指针可以被复制。
 
 // Includes std::cout (printing) for demo purposes.
 #include <iostream>

@@ -4,12 +4,9 @@
  * @brief Tutorial code for C++ STL condition variable.
  */
 
-// This program shows a small example of the usage of std::condition_variable.
-// The std::condition_variable class provides the condition variable
-// synchronization primitive. The condition variable primitive allows threads
-// to wait until a particular condition before they grab a mutex. It also
-// allows other threads to signal waiting threads to alert them that
-// the condition may be true. 
+//这个程序展示了使用 std::condition_variable 的一个简单示例。
+//std::condition_variable 类提供了条件变量同步原语。条件变量原语允许线程在获取互斥锁
+//之前等待特定条件。它还允许其他线程向正在等待的线程发送信号，以通知它们条件可能为真。
 
 // For a more detailed introduction of C style condition variables, see
 // https://pages.cs.wisc.edu/~remzi/OSTEP/threads-cv.pdf.

@@ -4,18 +4,13 @@
  * @brief Tutorial code for usage of a unique pointer.
  */
 
-// A smart pointer is a type of data structure used for memory management (and
-// sometimes other features) in languages that don't have memory management
-// built in (e.g C++) An example of a language that has memory management built
-// in is any language with garbage collection, like Java or Python. Two of the
-// modern C++ standard library's smart pointers (and the ones that you will use
-// in class) are std::unique_ptr and std::shared_ptr. Both std::unique_ptr and
-// std::shared_ptr handle memory allocation and deallocation automatically, and
-// contain raw pointers under the hood. In other words, they are wrapper classes
-// over raw pointers. In this file, we'll talk about std::unique_ptr.
-// std::unique_ptr is a type of smart pointer that retains sole ownership of an
-// object This means that no two instances of std::unique_ptr can manage the
-// same object.
+//智能指针是一种用于内存管理（有时也用于其他功能）的数据结构，在不具备内存管理功能
+//的语言中使用（例如 C++）。具有垃圾回收功能的语言，如 Java 或 Python，是内置了
+//内存管理功能的示例。现代 C++ 标准库中的两种智能指针（也是你在课程中将要使用的）
+//是 std::unique_ptr 和 std::shared_ptr。std::unique_ptr 和 std::shared_ptr 
+//都会自动处理内存分配和释放，并在内部包含原始指针。换句话说，它们是对原始指针的包装类。
+//在本文件中，我们将讨论 std::unique_ptr。std::unique_ptr 是一种智能指针，它保留对象
+//的唯一所有权。这意味着没有两个 std::unique_ptr 实例可以管理同一个对象。
 
 // Includes std::cout (printing) for demo purposes.
 #include <iostream>
@@ -89,11 +84,10 @@ int main() {
   // object. It is an empty unique pointer. Let's retest for emptyness.
   std::cout << "Pointer u3 is " << (u3 ? "not empty" : "empty") << std::endl;
   std::cout << "Pointer u4 is " << (u4 ? "not empty" : "empty") << std::endl;
-
-  // Lastly, let's talk about how to pass std::unique_ptr instances as arguments
-  // to functions. Mainly, you should pass it as a reference so that the
-  // ownership doesn't change. You can see this as an example in the function
-  // SetXTo445 (line 44 in this file).
+  
+  //最后，让我们讨论一下如何将 std::unique_ptr 实例作为参数传递给函数。主要来说，
+  //你应该将它作为引用传递，这样所有权就不会改变。你可以在函数 SetXTo445 中看到
+  //这个示例（在文件中的第 41 行）。
   SetXTo445(u4);
 
   // Now, let's print the x value of u4 to confirm that the change occured, but

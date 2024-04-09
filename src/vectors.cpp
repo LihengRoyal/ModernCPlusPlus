@@ -66,13 +66,11 @@ int main() {
 
   // It is also possible to initialize the vector via an initializer list.
   std::vector<int> int_vector = {0, 1, 2, 3, 4, 5, 6};
-
-  // There are two functions for appending data to the back of the vector. They
-  // are push_back and emplace_back. Generally, emplace_back is slightly faster,
-  // since it forwards the constructor arguments to the object's constructor and
-  // constructs the object in place, while push_back constructs the object, then
-  // moves it to the memory in the vector. We can see this here where we add two
-  // Point objects to our vector.
+  
+  //有两个用于向向量末尾添加数据的函数：push_back 和 emplace_back。一般来说，
+  //emplace_back 稍微更快，因为它将构造函数参数转发给对象的构造函数，并直接在原地
+  //构造对象，而 push_back 则先构造对象，然后将其移动到向量的内存中。我们可以在这里
+  //看到，我们向我们的向量添加了两个 Point 对象。
   std::cout << "Appending to the point_vector via push_back:\n";
   point_vector.push_back(Point(35, 36));
   std::cout << "Appending to the point_vector via emplace_back:\n";

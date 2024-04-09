@@ -61,6 +61,24 @@ int main() {
   std::thread t4(read_value);
   std::thread t5(write_value);
   std::thread t6(read_value);
+  std::thread t7(read_value);
+  std::thread t8(write_value);
+  std::thread t9(read_value);
+  std::thread t10(read_value);
+  std::thread t11(write_value);
+  std::thread t12(read_value);
+  std::thread t13(read_value);
+  std::thread t14(write_value);
+  std::thread t15(read_value);
+  std::thread t16(read_value);
+  std::thread t17(write_value);
+  std::thread t18(read_value);
+  std::thread t19(read_value);
+  std::thread t20(write_value);
+  std::thread t21(read_value);
+  std::thread t22(read_value);
+  std::thread t23(write_value);
+  std::thread t24(read_value);
 
   t1.join();
   t2.join();
@@ -68,6 +86,24 @@ int main() {
   t4.join();
   t5.join();
   t6.join();
+  t7.join();
+  t8.join();
+  t9.join();
+  t10.join();
+  t11.join();
+  t12.join();
+  t13.join();
+  t14.join();
+  t15.join();
+  t16.join();
+  t17.join();
+  t18.join();
+  t19.join();
+  t20.join();
+  t21.join();
+  t22.join();
+  t23.join();
+  t24.join();
 
   return 0;
 }

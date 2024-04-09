@@ -4,15 +4,11 @@
  * @brief Tutorial code on the usage of namespaces.
  */
 
-// Namespaces provide scope to identifiers (the names of functions, types,
-// variables). They are used to organize code into logical groups (e.g. a
-// library might be one namespace). They also can prevent naming collisons
-// between different identifiers. For instance, the C++ standard library
-// uses the std namespace. This is why the print function in C++ is identified
-// by std::cout, because the cout function is declared in the std
-// namespace. C++ uses the :: operator for scope resolution, and therefore
-// it is useful in differentiating which namespace a function, type,
-// or class is declared in.
+//命名空间为标识符（函数名、类型名、变量名）提供了作用域。它们用于将代码组织成
+//逻辑组（例如，一个库可能是一个命名空间）。它们还可以防止不同标识符之间的命名
+//冲突。例如，C++ 标准库使用了 std 命名空间。这就是为什么在 C++ 中，print 函数
+//通过 std::cout 来标识，因为 cout 函数是在 std 命名空间中声明的。C++ 使用
+// :: 运算符进行作用域解析，因此它对于区分函数、类型或类所声明的命名空间非常有用。
 
 // In this file, we will introduce namespaces, namespace syntax, the using
 // keyword, and calling functions from other namespaces.
@@ -26,10 +22,9 @@ namespace ABC {
   void spam(int a) {
     std::cout << "Hello from ABC::spam: " << a << std::endl;
   }
-
-  // namespace DEF is a nested namespace, because it is declared inside namespace
-  // ABC. The syntax for declaring a nested namespace is identical to the syntax of
-  // declaring a non-nested namespace.
+  
+  //DEF 命名空间是一个嵌套命名空间，因为它被声明在 ABC 命名空间内部。声明嵌套命名空间
+  //的语法与声明非嵌套命名空间的语法相同。
   namespace DEF {
     // We define a function bar inside the N::M namespace.
     void bar(float a) {
